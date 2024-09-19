@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .details {
+            background: linear-gradient(to bottom, transparent, #000000)
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="w-full h-screen bg-black overflow-hidden">
+        <div class="imagecontainer w-full h-screen relative">
+            <div class="maincard w-[130%] z-[2] h-[130%] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 absolute">
+                <img class="w-full h-full object-cover" src="" alt="">
+            </div>
+            <div
+                class="incomingcard w-[130%] z-[1] h-[130%] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 absolute">
+                <img src="" alt="" class="w-full h-full object-cover">
+            </div>
+        </div>
+        <div class="absolute w-full h-screen top-0 left-0 z-[3] flex flex-col items-center justify-between">
+            <div class="navbar w-full flex  p-5 items-center justify-between text-white">
+                <div class="profile overflow-hidden w-[3.5rem] h-[3.5rem] rounded-full">
+                    <img class="w-full h-full object-top object-cover"
+                        src="https://images.unsplash.com/photo-1564485377539-4af72d1f6a2f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </div>
+                <h3 class="capitalize text-xl tracking-tight">They liked you</h3>
+                <div
+                    class="chaticon w-[3.5rem] relative flex items-center justify-center h-[3.5rem] rounded-full bg-white/50">
+                    <i class="ri-chat-3-fill"></i>
+                    <div
+                        class="badge w-5 h-5 bg-red-600 absolute rounded-full flex items-center justify-center top-0 right-0">
+                        <h5 class="text-[12px]">5</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="details p-5 w-full">
+                <div class="element location flex gap-4 items-center">
+                    <i
+                        class="w-[2.5rem] h-[2.5rem] font-bold bg-white rounded-full flex items-center justify-center ri-corner-left-up-line text-xl"></i>
+                    <h3 class="text-white te">USA, California</h3>
+                </div>
+                <div class="element nameAge flex text-white mt-2 gap-5">
+                    <h1 class="name text-6xl">Victoria</h1>
+                    <h1 class="age text-6xl opacity-60">20</h1>
+                </div>
+                <div class="element tags flex gap-5 text-white mt-4"></div>
+                <div class="element bio text-white/80 mt-5">
+                    <h3 class="text-xl">Bio</h3>
+                    <p class="text-lg mt-3"></p>
+                </div>
+                <div class="element flex items-start mt-10 gap-1">
+                    <button class="deny py-3 font-semibold w-1/2 rounded-xl text-3xl bg-white">
+                        <i class="ri-close-fill"></i>
+                    </button>
+                    <button class="accept py-3 font-semibold w-1/2 rounded-xl text-3xl text-white bg-red-500">
+                        <i class="ri-heart-2-fill"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+
+        var user = [
+            {
+                profilePic: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                displayPic: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                pendingMessage: 4,
+                location: 'Delhi, India',
+                name: 'Trishika',
+                age: '21',
+                interest: [{
+                    icon: `<i class="ri-music-2-fill"></i>`,
+                    interestName: 'Music'
+                }, {
+                    icon: `<i class="ri-quill-pen-fill"></i>`,
+                    interestName: 'Pen'
+                }],
+                bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum nam doloremque rem omnis earum enim.',
+                isFriend: null,
+            },
+            {
+                profilePic: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1795&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                displayPic: "https://images.unsplash.com/photo-1576828831022-ca41d3905fb7?q=80&w=1923&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                pendingMessage: 6,
+                location: 'Pune, India',
+                name: 'Vedika',
+                age: '23',
+                interest: [{
+                    icon: `<i class="ri-code-box-fill"></i>`,
+                    interestName: 'Coding'
+                }, {
+                    icon: `<i class="ri-computer-fill"></i>`,
+                    interestName: 'Computer'
+                }],
+                bio: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo autem esse, harum impedit saepe adipisci!',
+                isFriend: null,
+            }
+            ,
+            {
+                profilePic: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                displayPic: "https://images.unsplash.com/photo-1529680459049-bf0340fa0755?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                pendingMessage: 10,
+                location: 'Bangalore, India',
+                name: 'Aarohi',
+                age: '25',
+                interest: [{
+                    icon: `<i class="ri-book-read-fill"></i>`,
+                    interestName: 'Reading'
+                }, {
+                    icon: `<i class="ri-shopping-basket-fill"></i>`,
+                    interestName: 'Shoping'
+                }],
+                bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, beatae aliquid labore officia pariatur odit?',
+                isFriend: null,
+            },
+            {
+                profilePic: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                displayPic: "https://images.unsplash.com/photo-1532998766099-bc0845902373?q=80&w=1943&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                pendingMessage: 9,
+                location: 'Hyderabad, India',
+                name: 'Aavya',
+                age: '18',
+                interest: [{
+                    icon: `<i class="ri-music-2-fill"></i>`,
+                    interestName: 'Music'
+                }, {
+                    icon: `<i class="ri-code-box-fill"></i>`,
+                    interestName: 'Coding'
+                }],
+                bio: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo suscipit facilis eligendi reprehenderit adipisci accusamus?',
+                isFriend: null,
+            },
+            {
+                profilePic: "https://images.unsplash.com/photo-1571513722275-4b41940f54b8?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                displayPic: "https://images.unsplash.com/photo-1545912453-3d32e20f72bf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                pendingMessage: 13,
+                location: 'Noida, India',
+                name: 'Mishita',
+                age: '26',
+                interest: [{
+                    icon: `<i class="ri-shopping-basket-fill"></i>`,
+                    interestName: 'Shoping'
+                }, {
+                    icon: `<i class="ri-computer-fill"></i>`,
+                    interestName: 'Computer'
+                }],
+                bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum nam doloremque rem omnis earum enim.',
+                isFriend: null,
+            },
+            {
+                profilePic: "https://images.unsplash.com/photo-1526413232644-8a40f03cc03b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                displayPic: "https://images.unsplash.com/photo-1532171875345-9712d9d4f65a?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                pendingMessage: 3,
+                location: 'Goa, India',
+                name: 'Pranavi',
+                age: '24',
+                interest: [{
+                    icon: `<i class="ri-music-2-fill"></i>`,
+                    interestName: 'Music'
+                }, {
+                    icon: `<i class="ri-cup-line"></i>`,
+                    interestName: 'Tea'
+                }],
+                bio: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex cupiditate labore distinctio consequatur dolore sapiente?',
+                isFriend: null,
+            }
+        ];
+
+        function select(elem) {
+            return document.querySelector(elem)
+        }
+
+        var curr = 0;
+        isAnimating = false
+
+        function setData(index) {
+            select('.profile img').src = user[index].profilePic
+            select('.badge h5').textContent = user[index].pendingMessage
+            select('.location h3').textContent = user[index].location
+            select('.name').textContent = user[index].name
+            select('.age').textContent = user[index].age
+
+            var clutter = ''
+            user[index].interest.forEach(function (interest) {
+                clutter += `<div class="tag flex items-center bg-white/30 px-3 py-1 rounded-full gap-3">
+                    ${interest.icon}
+                    <h3 class="text-sm tracking-tight">${interest.interestName}</h3>
+                    </div>`
+            })
+            select('.tags').innerHTML = clutter
+
+            select('.bio p').textContent = user[index].bio
+        }
+
+        (function setMainImg() {
+            select('.maincard img').src = user[curr].displayPic;
+            select('.incomingcard img').src = user[curr + 1].displayPic
+            setData(curr);
+            curr = 2
+        })();
+
+        function imageChange() {
+            if (!isAnimating) {
+                isAnimating = true
+                let tl = gsap.timeline({
+                    onComplete: function () {
+                        isAnimating = false
+                        let main = select('.maincard')
+                        let incoming = select('.incomingcard')
+
+                        main.classList.remove('z-[2]');
+                        main.classList.add('z-[1]');
+
+                        incoming.classList.remove('z-[1]')
+                        incoming.classList.add('z-[2]')
+                        incoming.classList.remove('incomingcard')
+
+
+                        gsap.set(main, {
+                            scale: 1,
+                            opacity: 1
+                        })
+                        if (curr == user.length) curr = 0
+                        select('.maincard img').src = user[curr].displayPic
+                        curr++;
+                        main.classList.remove('maincard');
+                        main.classList.add('incomingcard')
+                        incoming.classList.add('maincard')
+
+                    }
+                })
+
+                tl.to('.maincard', {
+                    scale: 1.1,
+                    opacity: 0,
+                    ease: Circ,
+                    duration: 0.9,
+                }, 'a')
+                tl.from('.incomingcard', {
+                    scale: .9,
+                    opacity: 1,
+                    ease: Circ,
+                    duration: 0.9,
+                }, 'a')
+            }
+
+        }
+
+
+        let deny = select('.deny')
+        let accept = select('.accept')
+
+        deny.addEventListener('click', function () {
+            imageChange()
+            setData(curr - 1)
+            gsap.from('.details .element', {
+                y: '100%',
+                duration: 0.9,
+                ease: Power4.easeInOut,
+                stagger: 0.06,
+            })
+        });
+
+        accept.addEventListener('click', function () {
+            imageChange()
+            setData(curr - 1)
+            gsap.from('.details .element', {
+                y: '100%',
+                duration: 0.9,
+                ease: Power4.easeInOut,
+                stagger: 0.06,
+            })
+        });
+
+        (function createContainer() {
+            document.querySelectorAll('.element').forEach(function (element) {
+                let div = document.createElement('div')
+                div.classList.add(`${element.classList[1]}container`, 'overflow-hidden')
+                div.appendChild(element)
+                select('.details').appendChild(div)
+            })
+        })();
+
+
+    </script>
+
+</body>
+
+</html>
